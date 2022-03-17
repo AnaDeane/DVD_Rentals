@@ -230,22 +230,21 @@ Where rn <= 10
 - Any other interesting dimensions or facts you might want to include.
 
 ```
-Create table schema.customer_lifecycle
+Create table if not exists schema.customer_lifecycle
 (
 customer_id		integer PRIMARY KEY,
-revenue_first30days 	integer
-value_tier            varchar
-first_film
-last_film
-last_rental_date
-average_time_bw_rentals 
-total_revenue
-top1_actor
-top2_actor
-top3_actor
+revenue_first30days 	integer NOT NULL,
+value_tier            varchar(5),
+first_film		varchar(40),
+last_film		varchar(40),
+last_rental_date	timestamp,
+average_time_bw_rentals integer,
+total_revenue		integer,
+top1_actor		varchar(40) NOT NULL,
+top2_actor		varchar(40) NOT NULL,
+top3_actor		varchar(40) NOT NULL,
 last_updated          date not null default current_date
-)
-;
+);
 
 Drop table if exists schema.revenue_first30days;
 
